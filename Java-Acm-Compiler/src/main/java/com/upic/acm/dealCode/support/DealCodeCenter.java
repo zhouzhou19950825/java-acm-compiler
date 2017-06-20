@@ -29,21 +29,7 @@ public class DealCodeCenter extends AbstraceDealCodeCenter {
 		byte[] compileReplace = (byte[]) replaceCode.replace(compile);
 		//获得可以测试的类了
 		Class<?> resultClass=doCompilerByByte(compileReplace);
-		
-		String test="1 2 3 4 5 6";
-		String result="2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n";
-//			Object newInstance = resultClass.newInstance();
-			Method method;
-			try {
-				Field f=resultClass.getField("testData");
-				f.set(String.class, test);
-				method = resultClass.getMethod("main", new Class[] { String[].class });
-				method.invoke(null, new String[] { null });
-				System.out.println(HackSystem.getBufferString());
-				System.out.println(HackSystem.getBufferString().equals(result));
-			}  catch (Exception e) {
-				e.printStackTrace();
-			}
+		//去评分数据
 			
 		return null;
 	}
